@@ -30,8 +30,11 @@ while (bandera):
                 system("clear")
                 camper.menu()
         case 2:
-            system("clear")
-            trainer.menu()
+            with open("module/storage/trainer.json", "r") as f:
+                trainer.trainer = json.loads(f.read())
+                f.close()
+                system("clear")
+                trainer.menu()
         case 0:
             system("clear")
             bandera = False

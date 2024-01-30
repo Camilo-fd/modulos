@@ -1,5 +1,5 @@
-from os import system
 import json
+from os import system
 from .data import camper, generos
 from .validate import menuNoValid
 
@@ -15,7 +15,7 @@ def save():
         data = json.dumps(camper, indent=4)
         f.write(data)
         f.close()
-    return f"Succesfully Camper"
+    return "Succesfully Camper"
 
 
 def edit():
