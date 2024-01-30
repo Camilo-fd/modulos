@@ -1,4 +1,5 @@
 from os import system
+import json
 from .data import camper, generos
 from .validate import menuNoValid
 
@@ -10,6 +11,10 @@ def save():
         "Genero": input("Elija su genero:\n\t"+"\t".join([f"{generos.index(i)+1}. {i}\n" for i in sorted(generos)]))
     }
     camper.append(info)
+    with open("module/storage/camper.json", "w") as f:
+        data = json.dumps(camper, indent=4)
+        f.write(data)
+        f.close()
     return f"Succesfully Camper"
 
 

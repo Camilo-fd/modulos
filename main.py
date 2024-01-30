@@ -7,11 +7,11 @@
 # import module.camper as camper  # se le asigno un alias a module.camper
 # print(camper.save())
 
+import json
 from os import system
 import module.camper as camper 
 import module.trainer as trainer
 from module.validate import menuNoValid
-
 
 def menu():
     print("Sistema de almacenamiento de datos para campus")
@@ -24,8 +24,11 @@ while (bandera):
     opc = int(input())
     match(opc):
         case 1:
-            system("clear")
-            camper.menu()
+            with open("module/storage/camper.json", "r") as f:
+                camper.camper = json.loads(f.read())
+                f.close()
+                system("clear")
+                camper.menu()
         case 2:
             system("clear")
             trainer.menu()
