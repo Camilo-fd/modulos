@@ -1,14 +1,25 @@
 from os import system
-from .data import camper
+from .data import camper, generos
 from .validate import menuNoValid
 
-def save(nombre):
-    camper.append(nombre)
-    return f"Succesfully Camper {nombre}"
+def save():
+    info = {
+        "Nombre": input("Ingrese el nombre del camper: "),
+        "Apellido": input("Ingrese el apellido: "),
+        "Edad": int(input("Ingrese la edad: ")),
+        "Genero": input("Elija su genero:\n\t"+"\t".join([f"{generos.index(i)+1}. {i}\n" for i in sorted(generos)]))
+    }
+    camper.append(info)
+    return f"Succesfully Camper"
+
+
 def edit():
     return "Edit to trainer"
+
 def search():
+    print(camper)
     return "The trainer is avaliable"
+
 def delete():
     return "Trainer deleted"
 
@@ -25,6 +36,9 @@ def menu():
         match(opc):
             case 1:
                 save()
+            case 2:
+                system("clear")
+                search()
             case 0:
                 system("clear")
                 bandera = False

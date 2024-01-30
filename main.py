@@ -10,6 +10,7 @@
 from os import system
 import module.camper as camper 
 import module.trainer as trainer
+from module.validate import menuNoValid
 
 
 def menu():
@@ -32,4 +33,4 @@ while (bandera):
             system("clear")
             bandera = False
         case _:
-            print("")
+            menuNoValid(opc)
